@@ -50,28 +50,15 @@
         font-size: 26px;
     }
 
-    .post-date{
-
+    .post-date,
+    .post-author{
+        font-style: italic;
+        font-weight: 100;
+        font-size: 12px;
     }
 
     .post-author{
-    font-style: italic;
-    font-weight: 100;
 
-        a{
-            color: $black;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        a:active,
-        a:hover{
-            color: $black;
-        }
-
-        a:visited{
-            color: grey;
-        }
     }
 
     .post-excerpt{

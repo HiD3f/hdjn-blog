@@ -32,5 +32,21 @@ body {
     overflow-x: hidden;
 }
 
+a{
+    color: $black;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .3s;
+
+    &:active,
+    &:hover{
+        text-decoration: underline;
+    }
+
+    &:visited{
+        color: grey;
+    }
+}
+
 $header-height--desktop : 80px;
 $header-height--mobile : 56px;

@@ -19,11 +19,11 @@
                                 <span class="post-title">{{ article.title }}</span>
                             </div>
                             <div>
-                                <span class="post-date">{{
-                                    article.updatedAt
-                                }}</span>
                                 <span class="post-author">
-                                    by <a href="">{{ article.author.name }}</a>
+                                    par <a href="">{{ article.author.name }}</a>
+                                </span>
+                                <span class="post-date">
+                                    le {{ formatDate(article.updatedAt) }}
                                 </span>
                             </div>
                             <div>
@@ -47,13 +47,19 @@
 export default {
     async asyncData({ $content, params }) {
         const articles = await $content('articles', params.slug)
-            .only(['title', 'description', 'img', 'slug', 'author'])
+            .only(['title', 'description', 'img', 'slug', 'author', 'updatedAt'])
             .sortBy('createdAt', 'asc')
             .fetch()
 
         return {
             articles,
         }
+    },
+    methods: {
+        formatDate(date) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' }
+            return new Date(date).toLocaleDateString('fr', options)
+        },
     },
 }
 </script>
